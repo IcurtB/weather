@@ -1,0 +1,72 @@
+export const test = {
+  base: "stations",
+  clouds: { all: 100 },
+  cod: 200,
+  coord: { lon: 74.59, lat: 42.87 },
+  dt: 1681799168,
+  id: 1528675,
+  main: {
+    temp: 277.26,
+    feels_like: 276.22,
+    temp_min: 277.26,
+    temp_max: 277.26,
+    pressure: 1032,
+  },
+  name: "Bishkek",
+  sys: {
+    type: 1,
+    id: 8871,
+    country: "KG",
+    sunrise: 1681776961,
+    sunset: 1681825547,
+  },
+  timezone: 21600,
+  visibility: 10000,
+  weather: [
+    {
+      description: "overcast clouds",
+      icon: "04d",
+      id: 804,
+      main: "Clouds",
+    },
+  ],
+  wind: { speed: 1.4, deg: 31, gust: 1.49 },
+};
+
+const forestCast = {
+  city: "asd",
+  coord: { lat: 42.87, lon: 74.59 },
+  country: "KG",
+  id: 1528675,
+  name: "Bishkek",
+  population: 900000,
+  sunrise: 1681776961,
+  sunset: 1681825547,
+  timezone: 21600,
+  cnt: 40,
+  cod: "200",
+  list: [
+    {
+      clouds: { all: 100 },
+      dt: 1681819200,
+      dt_txt: "2023-04-18 12:00:00",
+      main: {
+        temp: 280.38,
+        feels_like: 280.38,
+        temp_min: 280.38,
+        temp_max: 280.63,
+        pressure: 1032,
+        sea_level: 1032,
+      },
+      pop: 0.38,
+      rain: { "3h": 0.15 },
+      sys: { pod: "d" },
+      visibility: 10000,
+      weather: [
+        { id: 500, main: "Rain", description: "light rain", icon: "10d" },
+      ],
+      wind: { speed: 0.26, deg: 173, gust: 1.3 },
+    },
+  ],
+  message: 0,
+};
