@@ -1,16 +1,8 @@
 import "./App.css";
-import { Header } from "./components";
-import { Weather } from "./components/wether";
+import { Main } from "./components";
 
 function App() {
-  return (
-    <div>
-      <Header />
-      <div className="container-sm text-bg-light">
-        <Weather />
-      </div>
-    </div>
-  );
+  return <Main />;
 }
 
 export default App;

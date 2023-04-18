@@ -22,7 +22,7 @@ function forecastURL(coord) {
   _URL.searchParams.set("lang", "ru");
   return _URL;
 }
-export const Weather = () => {
+export const Weather = ({ option }) => {
   const [openWeatherMap, setOpenWeatherMap] = useState(null);
 
   async function fetchWeather() {
@@ -53,7 +53,23 @@ export const Weather = () => {
         });
     }
   }, [openWeatherMap]);
-
+  async function getDATA(map) {
+    console.log('map', map)
+    await fetch(map)
+      .then((response) => response.json())
+      .then((data) => console.log("data", data))
+      .catch((e) => {
+        console.log("error", e);
+        // setForecast(null);
+      });
+  }
+  useEffect(() => {
+    const map = option?.maps.openStreetMaps;
+    console.log(map)
+    if (map) {
+      getDATA(map);
+    }
+  }, [option]);
   return (
     <div className="py-4">
       <CardWeather {...openWeatherMap} {...forecast} />
