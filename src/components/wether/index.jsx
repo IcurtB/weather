@@ -52,9 +52,73 @@ export const Weather = ({ option }) => {
         });
     }
   }, [openWeatherMap]);
-
+  const main = openWeatherMap?.main;
+  // const weather = openWeatherMap?.weather[0]; // не придумал куда засунуть
+  const weatherName = openWeatherMap?.name;
+  // const wind = openWeatherMap?.wind; // не придумал куда засунуть
+  // const clouds = openWeatherMap?.clouds; // не придумал куда засунуть
+  // console.log("option", option);
+  //current option
+  const countryName = option?.name.official;
+  const region = option?.region;
+  const population = option?.population;
+  const flags = option?.flags;
+  const languages = option?.languages ? Object.values(option?.languages) : [];
+  console.log("main", main);
+  const HR = () => <hr style={{ margin: 0 }} />;
   return (
     <div className="py-4">
+      <div className="d-flex justify-content-end mb-2 align-items-end">
+        <div
+          className="card"
+          style={{
+            marginRight: "14px",
+          }}
+        >
+          <div className="card-header">Старана: {countryName}</div>
+          <div className="card-body d-flex justify-content-center align-items-center">
+            {flags ? (
+              <img
+                src={flags.png}
+                alt={flags.alt}
+                style={{
+                  height: "60px",
+                  width: "100px",
+                  borderRadius: "4px",
+                }}
+              />
+            ) : null}
+          </div>
+        </div>
+        <div
+          className="card"
+          style={{ minWidth: "270px", marginRight: "14px" }}
+        >
+          <div className="card-header">Город: {weatherName}</div>
+          <div className="card-body">
+            <p className="lead" style={{ fontSize: "16px" }}>
+              Регион: {region}
+              <HR />
+              Численность насиления: {population}
+              <HR />
+              Языки: {languages.join(", ")}
+            </p>
+          </div>
+        </div>
+        <div className="card">
+          <div className="card-header">Погода</div>
+          <div className="card-body">
+            <p className="lead" style={{ fontSize: "16px" }}>
+              Тепература: {main?.temp}
+              <HR />
+              Чувствуется как: {main?.feels_like}
+              <HR />
+              Влажность: {main?.humidity}
+            </p>
+          </div>
+        </div>
+      </div>
+
       <CardWeather {...openWeatherMap} {...forecast} />
     </div>
   );

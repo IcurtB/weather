@@ -8,7 +8,6 @@ export const CardWeather = (props) => {
     month: "long",
     day: "numeric",
   };
-  console.log("props", props);
   return (
     <div className="card">
       <div className="card-body">
@@ -18,7 +17,6 @@ export const CardWeather = (props) => {
         <h5 className="card-title">
           {props?.name}, {props?.sys?.country}
         </h5>
-        <h6 className="card-subtitle">{}</h6>
         <hr className="hr" />
         <table className="table table-small table-hover">
           <thead className="thead-dark">
