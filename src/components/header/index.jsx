@@ -14,7 +14,7 @@ export const Header = ({ setOption }) => {
   const hanldeBlur = () => setFocus(false);
   const [text, setText] = useState("");
   function handleOption(option) {
-    setText(option.name.official);
+    setText(option.capital?.[0]);
     setOption(option);
     setFocus(false);
   }
@@ -41,7 +41,6 @@ export const Header = ({ setOption }) => {
             aria-describedby="search-country"
             value={text}
             style={{ zIndex: 1 }}
-            onFocus={(e) => e.preventDefault() }
             onChange={(e) => setText(e.target.value)}
           />
           {focus && (
@@ -61,10 +60,10 @@ export const Header = ({ setOption }) => {
                 {contries
                   ?.filter(
                     (item) =>
-                      item.name.official
+                      item.capital?.[0]
                         .toLowerCase()
                         .startsWith(text.toLowerCase()) ||
-                      item.name.official
+                      item.capital?.[0]
                         .toLowerCase()
                         .includes(text.toLowerCase())
                   )
@@ -76,7 +75,7 @@ export const Header = ({ setOption }) => {
                       }}
                       style={{ ":hover": { background: "red" } }}
                     >
-                      {country.name.official}
+                      {country.capital?.[0]}
                     </li>
                   ))}
               </ul>

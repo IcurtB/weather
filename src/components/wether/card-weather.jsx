@@ -8,6 +8,7 @@ export const CardWeather = (props) => {
     month: "long",
     day: "numeric",
   };
+  console.log("props", props);
   return (
     <div className="card">
       <div className="card-body">
@@ -19,16 +20,6 @@ export const CardWeather = (props) => {
         </h5>
         <h6 className="card-subtitle">{}</h6>
         <hr className="hr" />
-        {/* <div className="d-flex align-items-center gap-2">
-          <img src={openWeatherMapIcon(icon)} alt="" />
-          <p className="m-0 h5" style={{ fontSize: "28px" }}>
-            {main?.temp}
-            &#8451;
-          </p>
-        </div>
-        <div className="d-flex">
-          <p className="d-flex">Чувствуется как {main?.feels_like}</p>
-        </div> */}
         <table className="table table-small table-hover">
           <thead className="thead-dark">
             <tr>
